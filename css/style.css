@@ -1,0 +1,751 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&family=Ubuntu&family=Lobster&display=swap&display=swap');
+
+/*
+  font-family: 'Ubuntu', sans-serif; 
+  font-family: 'Lobster', cursive;
+*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0.8vw;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #202020;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #383838; 
+}
+
+body {
+  background: #181818 url(../images/bg-body.jpg);
+  background-attachment: fixed;
+  font-size: 2em;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#nav-bar {
+  background-color: #202020;
+  padding: 25px;
+  height: 70px;
+}
+
+body > div {
+  background-color: rgba(40, 40, 40, 0.90);
+  width: calc(100vw - 200px);
+  margin: 100px auto;
+}
+
+/* ------------- Formatação da Barra de Navegação ------------- */
+#logo {
+  font-family: 'Lobster', cursive;
+  color: #fff;
+  float: left;
+}
+
+#logo::before {
+  content: "</>";
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+#desktop-nav {
+  float: right; 
+  display: block;
+}
+
+#mobile-nav {
+  display: none;
+}
+
+#desktop-nav .nav-items {
+  font-family: 'Ubuntu', sans-serif; 
+  text-decoration: none;
+  color: #fff;
+  padding: 0 15px 0 15px;
+  transition: background 0.5s, color 0.25s;
+}
+
+#desktop-nav .nav-items:hover {
+  color: rgb(110, 110, 110);
+}
+
+/* ------------- Menu Mobile  ------------- */
+.menu-btn {
+  float: right;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  transform: scale(0.8);
+}
+
+.menu-btn__burger {
+  width: 50px;
+  height: 6px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  transform: translateY(-16px);
+}
+
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  transform: translateY(16px);
+}
+
+/* Animação Burguer */
+#mobile-nav {
+  font-family: 'Ubuntu', sans-serif;
+  z-index: 3;
+}
+
+#mobile-nav.active .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+#mobile-nav.active .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+#mobile-nav.active .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/* ------------- Menu mobile ------------- */
+#mobile-nav nav {
+  background: #202020;
+  text-align: center;
+  width: 60%;
+  height: 0;
+  overflow-y: hidden;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0 0 0 25px;
+  transition: 0.5s;
+}
+
+#mobile-nav nav a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+
+#mobile-nav nav .divider {
+  border: 1.5px solid #3f3f3f;
+  width: 60%;
+}
+
+#mobile-nav.active nav {
+  height: 350px;
+  overflow-y: auto;
+}
+
+/* ------------- Github e Linkedin | Lateral ------------- */
+.social-media {
+  position: absolute;
+  right: 5px;
+  top: 50px;
+  width: 50px;
+}
+
+.social-media svg {
+  padding-top: 15px;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.social-media svg:hover {
+  transform: scale(1.2);
+}
+
+/* ------------- Container do título ------------- */
+#title-container {
+  height: 90vh;
+}
+
+/* ------------- Formatação do título ------------- */
+#title {
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em; 
+  color: #fff;
+  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+  letter-spacing: -3px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(35%);
+}
+
+/* ------------- Animação do título ------------- */
+#title::before, #title::after {
+  content: "";
+  padding: 2em .4em;
+  position: absolute;
+  left: 50%;
+  width: 110%;
+  top: 50%;
+  display: block;
+  border: 15px solid red;
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+#title:before {
+  border-color: #5a5a5a #5a5a5a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+#title:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #5a5a5a #5a5a5a;
+  box-shadow: 25px 25px 25px rgba(40, 40, 40, .8);
+}
+
+@keyframes tipsy {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+/* ------------- Divisor de seção ------------- */
+.divider {
+  background-color: #3f3f3f;
+  border: 5px solid #3f3f3f;
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* ------------- Formatação geral do main ------------- */
+.main-sections {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: justify;
+  color: #fff;
+  margin: 100px auto;
+  width: 90%;
+}
+
+/* ------------- Seção Sobre ------------- */
+#about-section {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+#about-photo {
+  background-image: url(../images/photo-bw.jpg);
+  transition: 0.5s;
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
+  border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+}
+
+#about-photo:hover {
+  background-image: url(../images/photo.jpg);
+  border-radius: 50%;
+}
+
+#about-container {
+  margin-right: auto;
+  width: 65%;
+}
+
+#about-container h2 {
+  margin-bottom: 30px;
+}
+
+/* ------------- Seção de conhecimentos ------------- */
+#knowledge-section > h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#knowledge-section > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+#knowledge-section img {
+  filter: grayscale(1);
+  width: 20%;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+#knowledge-section img:nth-child(2n) {
+  margin-top: 100px;
+}
+
+#knowledge-section img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+
+/* ------------- Seção de projetos ------------- */
+#projects-section > h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ------------- Formatação geral dos cartões ------------- */
+.projects-items {
+  text-decoration: none;
+  color: white;
+  width: 30%;
+  margin: 25px;
+  background: #383838;
+  padding: 15px;
+  border-radius: 15px;
+  transition: .5s;
+}
+
+.projects-items h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.projects-items img {
+  filter: grayscale(1);
+  border-radius: 15px;
+  width: 100%;
+  transition: .5s;
+}
+
+.projects-items:hover {
+  background: #505050;
+  transform: scale(1.1);
+}
+
+.projects-items:hover img {
+  filter: grayscale(0);
+}
+
+.project-technologies {
+  text-align: center;
+}
+
+.project-technologies img {
+  margin: 15px 15px 0 15px;
+  width: 15%;
+}
+
+/* ------------- Rodapé ------------- */
+footer {
+  background: #202020;
+  height: 90px;
+  padding: 25px;
+}
+
+footer #logo {
+  text-align: center;
+  float: none;
+}
+
+/* ------------- Breakpoints ------------- */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+  body {
+    font-size: 1.1em;
+  }
+
+  body > div {
+    width: calc(100vw - 100px);
+    margin: 50px auto;
+  }
+
+  /* ------------- Barra de navegação ------------- */
+  #desktop-nav {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: block;
+  }
+
+  #mobile-nav nav {
+    top: 40px;
+  }
+
+  #nav-bar {
+    padding: 10px;
+    height: 40px;
+  }
+
+  /* ------------- Barra lateral ------------- */
+  .social-media {
+    float: right;
+    width: 20px;
+    margin: 50px 5px;
+  }
+
+  /* ------------- Título ------------- */
+  #title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+  }
+
+  #title {
+    position: static;
+    transform: none;
+    width: 100%;
+    
+  }
+
+  #title::before, #title::after {
+    display: none;
+  }
+
+  /* ------------- Divisor ------------- */
+  .divider {
+    border: 3px solid #3f3f3f;
+  }
+
+  /* ------------- Seções de conteúdo ------------- */
+  .main-sections {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  #about-section {
+    flex-direction: column;
+  }
+
+  #about-photo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+  }
+
+  #about-container {
+    width: 100%;
+  }
+
+  #about-container h2 {
+    text-align: center;
+  }
+
+  .projects-items {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .project-technologies img {
+    margin: 15px 10px 0 10px;
+  }
+
+}
+
+/* Small devices (lanscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768.98px) {
+
+  body {
+    font-size: 1.5em;
+  }
+
+  body > div {
+    width: calc(100vw - 100px);
+    margin: 50px auto;
+  }
+
+  /* ------------- Barra de navegação ------------- */
+  #nav-bar {
+    height: 80px;
+  }
+
+  .menu-btn {
+    height: 30px;
+  }
+
+  #desktop-nav {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: block;
+  }
+
+  /* ------------- Divisor ------------- */
+  .divider {
+    border: 3px solid #3f3f3f;
+  }
+ 
+  /* ------------- Barra lateral ------------- */
+  .social-media {
+    float: right;
+    width: 20px;
+    margin: 50px 0px;
+  } 
+
+  /* ------------- Título ------------- */
+  #title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+  }
+
+  #title {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  #title::before, #title::after {
+    display: none;
+  }
+
+  /* ------------- Seções de conteúdo ------------- */
+  .main-sections {
+    margin: 50px auto;
+    width: 90%;
+  }
+
+  #about-section {
+    flex-direction: column;
+  }
+
+  #about-photo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+  }
+
+  #about-container {
+    width: 100%;
+  }
+
+  #about-container h2 {
+    text-align: center;
+  }
+
+  .projects-items {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .project-technologies img {
+    margin: 15px 10px 0 10px;
+  }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 769px) and (max-width: 991.98px) {
+
+  body {
+    font-size: 1.3em;
+  }
+
+  body > div {
+    width: calc(100vw - 100px);
+    margin: 50px auto;
+  }
+
+  /* ------------- Barra de navegação ------------- */
+  #nav-bar {
+    height: 80px;
+  }
+
+  .menu-btn {
+    height: 26px;
+  }
+
+
+  #desktop-nav {
+    display: none;
+  }
+ 
+  #mobile-nav {
+    display: block;
+  }
+
+  /* ------------- Barra lateral ------------- */
+  .social-media {
+    float: right;
+    width: 25px;
+    margin: 50px 5px;
+  }
+
+  /* ------------- Título ------------- */
+  #title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+  }
+
+  #title {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  #title::before, #title::after  {
+    display: none;
+  }
+ 
+  /* ------------- Seções de conteúdo ------------- */
+  .main-sections {
+    margin: 75px auto;
+    width: 90%;
+  }
+
+  #about-photo {
+    width: 170px;
+    height: 170px;
+  }
+ 
+  .projects-items {
+    width: 100%;
+    padding: 15px;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  body {
+    font-size: 1.4em;
+  }
+
+  #mobile-nav {
+    display: none;
+  }
+ 
+  .social-media {
+    float: right;
+    width: 35px;
+    margin: 50px 10px;
+  }
+
+  #title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+  }
+
+  #title {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  #title::before, #title::after  {
+    display: none;
+  }
+ 
+  #about-photo {
+    width: 230px;
+    height: 230px;
+  }
+ 
+  .projects-items {
+    width: 43%;
+    padding: 10px;
+  }
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+
+  body {
+    font-size: 1.6em;
+  }
+
+  #mobile-nav {
+    display: none;
+  }
+ 
+  .social-media {
+    float: right;
+    width: 35px;
+    margin: 50px 5px;
+  }
+ 
+  #title-container {
+    height: 110vh;
+  }
+
+  #title {
+    transform: translateX(-50%) translateY(80%);
+  }
+ 
+  #about-photo {
+    width: 280px;
+    height: 280px;
+  }
+ 
+  .projects-items {
+    width: 40%;
+  }
+ 
+}
