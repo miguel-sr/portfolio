@@ -432,6 +432,7 @@ footer #logo {
   /* ------------- Barra lateral ------------- */
   .social-media {
     width: 20px;
+    right: 3px;
   }
 
   /* ------------- Título ------------- */
@@ -477,7 +478,8 @@ footer #logo {
   }
 
   #about-container {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   #about-container h2 {
