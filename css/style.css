@@ -361,7 +361,6 @@ body > div {
 
 .projects-items img {
   filter: grayscale(1);
-  border-radius: 15px;
   width: 100%;
   transition: .5s;
 }
