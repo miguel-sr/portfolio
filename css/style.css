@@ -309,12 +309,14 @@ body > div {
 
 #knowledge-section > div {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
 #knowledge-section img {
   filter: grayscale(1);
   width: 20%;
+  margin: 30px;
   transition: transform 0.5s, filter 0.5s;
 }
 
